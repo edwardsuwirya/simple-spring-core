@@ -15,7 +15,10 @@ public class Application {
 //        System.out.println(value.orElse(new Course()));
 
         // Ngga banget yaaa... walaupun aplikasi bisa dijalankan dengan baik
-        // Ini yang disebut Hardcoded Dependency, dimana class Application membutuhkan class CourseService
+        // class Application membutuhkan class CourseService, CourseService adalah dependensi dari class Application
+        // Teknik yang digunakan dibawah Ini yang disebut Hardcoded Dependency dan tight coupling
+        // Dimana class Application yang bertanggung jawab membuat object courseService dan dalam pembuatan object nya
+        // digunakan Class CourseService bukan Interface
         CourseService courseService = new CourseService();
         Course springCourse = new Course();
         springCourse.setCourseId(123);
