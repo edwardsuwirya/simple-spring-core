@@ -1,10 +1,9 @@
 package com.enigmacamp;
 
+import com.enigmacamp.config.BeanConfiguration;
 import com.enigmacamp.model.Course;
-import com.enigmacamp.service.CourseService;
 import com.enigmacamp.service.ICourseService;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.util.List;
 
@@ -30,8 +29,11 @@ public class Application {
         // Object dependensi yang didaftarkan dalam Spring IoC container disebut Bean
         // Untuk menggunakan spring bean di class yang membutuhkan, kita menggunakan spring context
 
-        ApplicationContext ctx = new ClassPathXmlApplicationContext("ApplicationContext.xml");
-        ICourseService courseService = (ICourseService) ctx.getBean("courseService");
+        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
+        ctx.register(BeanConfiguration.class);
+        ctx.refresh();
+
+        ICourseService courseService = ctx.getBean(ICourseService.class);
         Course springCourse = new Course();
         springCourse.setCourseId(123);
         springCourse.setDescription("Spring IoC");
