@@ -6,30 +6,35 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class CourseService {
+public class CourseService implements ICourseService {
     private List<Course> courses;
 
     public CourseService() {
         courses = new ArrayList<>();
     }
 
+    @Override
     public List<Course> list() {
         return courses;
     }
 
+    @Override
     public Course create(Course course) {
         courses.add(course);
         return course;
     }
 
+    @Override
     public Optional<Course> get(Integer id) {
         return Optional.empty();
     }
 
+    @Override
     public void update(Course course, Integer id) {
 
     }
 
+    @Override
     public void delete(Integer id) {
 
     }
