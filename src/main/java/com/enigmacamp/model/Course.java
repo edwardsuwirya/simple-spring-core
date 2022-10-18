@@ -1,16 +1,16 @@
 package com.enigmacamp.model;
 
 public class Course {
-    private Integer courseId;
+    private String courseId;
     private String title;
     private String description;
     private String link;
 
-    public Integer getCourseId() {
+    public String getCourseId() {
         return courseId;
     }
 
-    public void setCourseId(Integer courseId) {
+    public void setCourseId(String courseId) {
         this.courseId = courseId;
     }
 

@@ -10,9 +10,9 @@ public interface ICourseRepository {
 
     Course create(Course course) throws Exception;
 
-    Optional<Course> findById(Integer id) throws Exception;
+    Optional<Course> findById(String id) throws Exception;
 
-    void update(Course course, Integer id) throws Exception;
+    void update(Course course, String id) throws Exception;
 
-    void delete(Integer id) throws Exception;
+    void delete(String id) throws Exception;
 }

@@ -1,13 +1,16 @@
 package com.enigmacamp.repository;
 
 import com.enigmacamp.model.Course;
+import com.enigmacamp.util.IRandomStringGenerator;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.Random;
 
 public class CourseArrayRepository implements ICourseRepository {
+    @Autowired
+    IRandomStringGenerator randomStringGenerator;
     private List<Course> courses = new ArrayList<>();
 
     @Override
@@ -17,16 +20,13 @@ public class CourseArrayRepository implements ICourseRepository {
 
     @Override
     public Course create(Course course) {
-        Random rand = new Random();
-        int upperbound = 1000000;
-        int int_random = rand.nextInt(upperbound);
-        course.setCourseId(int_random);
+        course.setCourseId(randomStringGenerator.random());
         courses.add(course);
         return course;
     }
 
     @Override
-    public Optional<Course> findById(Integer id) {
+    public Optional<Course> findById(String id) {
         for (Course course : courses) {
             if (course.getCourseId() == id) {
                 return Optional.of(course);
@@ -36,7 +36,7 @@ public class CourseArrayRepository implements ICourseRepository {
     }
 
     @Override
-    public void update(Course course, Integer id) {
+    public void update(Course course, String id) {
         for (Course existingCourse : courses) {
             if (existingCourse.getCourseId() == id) {
                 existingCourse.setLink(course.getLink());
@@ -48,7 +48,7 @@ public class CourseArrayRepository implements ICourseRepository {
     }
 
     @Override
-    public void delete(Integer id) {
+    public void delete(String id) {
         for (Course course : courses) {
             if (course.getCourseId() == id) {
                 courses.remove(course);

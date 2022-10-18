@@ -1,9 +1,12 @@
 package com.enigmacamp.config;
 
 import com.enigmacamp.repository.CourseArrayRepository;
+import com.enigmacamp.repository.ErrorRepository;
 import com.enigmacamp.repository.ICourseRepository;
 import com.enigmacamp.service.CourseService;
 import com.enigmacamp.service.ICourseService;
+import com.enigmacamp.util.IRandomStringGenerator;
+import com.enigmacamp.util.RandomInt;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
@@ -23,5 +26,12 @@ public class BeanConfiguration {
     @Scope("singleton")
     public ICourseRepository getCourseRepository() {
         return new CourseArrayRepository();
+    }
+
+    @Bean
+    public ErrorRepository errorRepository(){ return new ErrorRepository();}
+    @Bean
+    public IRandomStringGenerator getRandomInt() {
+        return new RandomInt();
     }
 }

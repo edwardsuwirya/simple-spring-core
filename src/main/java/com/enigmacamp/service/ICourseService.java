@@ -18,9 +18,9 @@ public interface ICourseService {
 
     Course create(Course course);
 
-    Optional<Course> get(Integer id);
+    Optional<Course> get(String id);
 
-    void update(Course course, Integer id);
+    void update(Course course, String id);
 
-    void delete(Integer id);
+    void delete(String id);
 }
