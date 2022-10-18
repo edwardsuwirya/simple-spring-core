@@ -1,7 +1,6 @@
 package com.enigmacamp;
 
 import com.enigmacamp.model.Course;
-import com.enigmacamp.service.CourseService;
 import com.enigmacamp.service.ICourseService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
