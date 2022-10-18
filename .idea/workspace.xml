@@ -4,10 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="614be628-8bcf-43f7-bb21-538e1df8b86a" name="Changes" comment="Using qualifier to differentiate same bean return class">
+    <list default="true" id="614be628-8bcf-43f7-bb21-538e1df8b86a" name="Changes" comment="Using setter injection">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/config/BeanConfigurationDev.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/model/mapper/CourseMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/repository/CourseRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/util/DbMigration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/util/DbMigrationResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/util/IDbMigration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/util/SkipMigration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/application-dev.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/application-prod.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/enigmacamp/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/Application.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/enigmacamp/config/BeanConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/config/BeanConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/enigmacamp/repository/CourseArrayRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/repository/CourseArrayRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/enigmacamp/repository/ErrorRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/repository/ErrorRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -18,15 +29,16 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Enum" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="05-IoC-Qualifier" />
+        <entry key="$PROJECT_DIR$" value="06-IoC-Setter-Injection" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -60,8 +72,17 @@
     &quot;spring.configuration.checksum&quot;: &quot;6ca1b91090358e1d80ccc18639daaa6b&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.enigmacamp.util" />
+      <recent name="com.enigmacamp.config" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <envs>
+        <env name="spring_profiles_active" value="prod" />
+      </envs>
       <option name="MAIN_CLASS_NAME" value="com.enigmacamp.Application" />
       <module name="hello-spring" />
       <extension name="coverage">
@@ -69,6 +90,16 @@
           <option name="PATTERN" value="com.enigmacamp.*" />
           <option name="ENABLED" value="true" />
         </pattern>
+      </extension>
+      <extension name="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" IS_EXECUTABLE="false" />
+        </ENTRIES>
       </extension>
       <method v="2">
         <option name="Make" enabled="true" />
@@ -123,7 +154,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666059177852</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Using setter injection">
+      <created>1666059332436</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1666059332436</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -187,7 +225,8 @@
     <MESSAGE value="IoC With Java Config" />
     <MESSAGE value="Field Injection with autowired annotation" />
     <MESSAGE value="Using qualifier to differentiate same bean return class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Using qualifier to differentiate same bean return class" />
+    <MESSAGE value="Using setter injection" />
+    <option name="LAST_COMMIT_MESSAGE" value="Using setter injection" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

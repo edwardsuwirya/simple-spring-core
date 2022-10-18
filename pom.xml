@@ -14,11 +14,22 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java-version>1.6</java-version>
         <org.springframework-version>5.3.23</org.springframework-version>
+        <postgres.version>42.5.0</postgres.version>
     </properties>
     <dependencies>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
+            <version>${org.springframework-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>${postgres.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
             <version>${org.springframework-version}</version>
         </dependency>
     </dependencies>
