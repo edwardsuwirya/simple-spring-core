@@ -15,9 +15,9 @@ import org.springframework.context.annotation.*;
 // Anotation configuration sangat penting untuk membaca bean scope
 // Apabila annotation configuration dihilangkan, aplikasi masih bisa berjalan, tetapi
 // object getCourseRepository tidak akan menjadi singleton
-@Profile("dev")
+@Profile("local")
 @Configuration
-@PropertySource("classpath:application-${spring.profiles.active:default}.properties")
+@PropertySource("file:${app.home}/application-local.properties")
 public class BeanConfigurationDev {
     @Value("${spring.profiles.active}")
     private String activeProfile;

@@ -19,9 +19,9 @@ import javax.sql.DataSource;
 // Anotation configuration sangat penting untuk membaca bean scope
 // Apabila annotation configuration dihilangkan, aplikasi masih bisa berjalan, tetapi
 // object getCourseRepository tidak akan menjadi singleton
-@Profile("prod")
+@Profile("!local")
 @Configuration
-@PropertySource("classpath:application-${spring.profiles.active:default}.properties")
+@PropertySource("file:${app.home}/application-${spring.profiles.active:default}.properties")
 public class BeanConfiguration {
     @Value("${spring.profiles.active}")
     private String activeProfile;
