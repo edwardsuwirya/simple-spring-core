@@ -8,6 +8,8 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import java.util.List;
 
 public class Application {
+    static ICourseService courseService;
+
     public static void main(String[] args) {
 //        System.out.println("Hello Spring...");
 //        Course[] courses = new Course[10];
@@ -33,17 +35,31 @@ public class Application {
         ctx.register(BeanConfiguration.class);
         ctx.refresh();
 
-        ICourseService courseService = ctx.getBean(ICourseService.class);
+        courseService = ctx.getBean(ICourseService.class);
+        System.out.println("counterService object Id :" + courseService.hashCode());
         Course springCourse = new Course();
-        springCourse.setCourseId(123);
         springCourse.setDescription("Spring IoC");
         springCourse.setLink("https://www.javatpoint.com/ioc-container");
         springCourse.setTitle("Spring Framework");
         courseService.create(springCourse);
 
+        courseService = ctx.getBean(ICourseService.class);
+        System.out.println("counterService object Id :" + courseService.hashCode());
+        Course goCourse = new Course();
+        goCourse.setDescription("Goroutine");
+        goCourse.setLink("https://gobyexample.com/goroutines");
+        goCourse.setTitle("Golang");
+        courseService.create(goCourse);
+//        Contoh hasil cetak bean dengan scope
+        printResult();
+        courseService.delete(goCourse.getCourseId());
+//        printResult();
+    }
+
+    static private void printResult() {
         List<Course> courseList = courseService.list();
         for (Course course : courseList) {
-            System.out.printf(course.toString());
+            System.out.println(course.toString());
         }
     }
 }

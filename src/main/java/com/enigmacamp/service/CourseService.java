@@ -1,27 +1,36 @@
 package com.enigmacamp.service;
 
 import com.enigmacamp.model.Course;
+import com.enigmacamp.repository.ICourseRepository;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 public class CourseService implements ICourseService {
-    private List<Course> courses;
 
-    public CourseService() {
-        courses = new ArrayList<>();
+    private ICourseRepository courseRepository;
+
+    public CourseService(ICourseRepository courseRepository) {
+        this.courseRepository = courseRepository;
+        System.out.println("Counter repository object Id: " + this.courseRepository.hashCode());
     }
 
     @Override
     public List<Course> list() {
-        return courses;
+        try {
+            return courseRepository.getAll();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
     public Course create(Course course) {
-        courses.add(course);
-        return course;
+        try {
+            return courseRepository.create(course);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
@@ -31,11 +40,19 @@ public class CourseService implements ICourseService {
 
     @Override
     public void update(Course course, Integer id) {
-
+        try {
+            courseRepository.update(course, id);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
     public void delete(Integer id) {
-
+        try {
+            courseRepository.delete(id);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 }
