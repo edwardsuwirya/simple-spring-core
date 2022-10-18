@@ -10,9 +10,15 @@ import java.util.List;
 import java.util.Optional;
 
 public class CourseArrayRepository implements ICourseRepository {
-    @Autowired
-    @Qualifier("randomUUID")
+    //    @Autowired
+//    @Qualifier("randomUUID")
     IRandomStringGenerator randomStringGenerator;
+
+
+    public CourseArrayRepository(IRandomStringGenerator randomStringGenerator) {
+        this.randomStringGenerator = randomStringGenerator;
+    }
+
     private List<Course> courses = new ArrayList<>();
 
     @Override

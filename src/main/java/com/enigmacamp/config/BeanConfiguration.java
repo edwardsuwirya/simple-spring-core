@@ -9,15 +9,29 @@ import com.enigmacamp.util.IRandomStringGenerator;
 import com.enigmacamp.util.RandomInt;
 import com.enigmacamp.util.UuidGenerator;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.Scope;
+import org.springframework.core.env.Environment;
 
 // Anotation configuration sangat penting untuk membaca bean scope
 // Apabila annotation configuration dihilangkan, aplikasi masih bisa berjalan, tetapi
 // object getCourseRepository tidak akan menjadi singleton
 @Configuration
+@PropertySource("classpath:app.properties")
 public class BeanConfiguration {
+//    private final Environment environment;
+//    private final String RANDOM_GENERATOR = "generator.type";
+//
+//    public BeanConfiguration(Environment environment) {
+//        this.environment = environment;
+//    }
+
+    @Value("${generator.type}")
+    String randomGenerator;
+
     @Bean
     @Scope("prototype")
     public ICourseService getCourseService() {
@@ -27,7 +41,13 @@ public class BeanConfiguration {
     @Bean
     @Scope("singleton")
     public ICourseRepository getCourseRepository() {
-        return new CourseArrayRepository();
+
+//        String randomGenerator = environment.getProperty(RANDOM_GENERATOR);
+        if (randomGenerator.equals("uuid")) {
+            return new CourseArrayRepository(getRandomUUID());
+        }
+        return new CourseArrayRepository(getRandomInt());
+
     }
 
     @Bean
