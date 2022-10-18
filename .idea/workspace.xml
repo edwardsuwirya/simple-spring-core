@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="614be628-8bcf-43f7-bb21-538e1df8b86a" name="Changes" comment="Field Injection with autowired annotation">
+    <list default="true" id="614be628-8bcf-43f7-bb21-538e1df8b86a" name="Changes" comment="Using qualifier to differentiate same bean return class">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/enigmacamp/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/Application.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/enigmacamp/config/BeanConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/config/BeanConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/enigmacamp/repository/CourseArrayRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/repository/CourseArrayRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/enigmacamp/repository/ErrorRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/repository/ErrorRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -26,7 +26,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="04-IoC-Field-Injection" />
+        <entry key="$PROJECT_DIR$" value="05-IoC-Qualifier" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -116,7 +116,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666058731917</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Using qualifier to differentiate same bean return class">
+      <created>1666059177852</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1666059177852</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -179,7 +186,8 @@
     <MESSAGE value="Spring Ioc, DI hands-on" />
     <MESSAGE value="IoC With Java Config" />
     <MESSAGE value="Field Injection with autowired annotation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Field Injection with autowired annotation" />
+    <MESSAGE value="Using qualifier to differentiate same bean return class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Using qualifier to differentiate same bean return class" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

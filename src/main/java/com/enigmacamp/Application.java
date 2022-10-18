@@ -41,7 +41,7 @@ public class Application {
 
 //        Pembentukan object yang salah, karena tidak dibentuk oleh IoC
 //        new ErrorRepository().getRandom();
-//        ctx.getBean(ErrorRepository.class).getRandom();
+        ctx.getBean(ErrorRepository.class).getRandom();
 
         courseService = ctx.getBean(ICourseService.class);
         System.out.println("counterService object Id :" + courseService.hashCode());

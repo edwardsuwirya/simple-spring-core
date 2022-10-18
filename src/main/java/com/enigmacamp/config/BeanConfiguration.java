@@ -32,7 +32,9 @@ public class BeanConfiguration {
 
     @Bean
     public ErrorRepository errorRepository() {
-        return new ErrorRepository();
+        ErrorRepository errorRepository = new ErrorRepository();
+        errorRepository.setRandomStringGenerator(getRandomInt());
+        return errorRepository;
     }
 
     @Bean

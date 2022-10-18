@@ -5,11 +5,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
 public class ErrorRepository {
-    @Autowired
-    @Qualifier("randomInt")
     IRandomStringGenerator randomStringGenerator;
 
+    public IRandomStringGenerator getRandomStringGenerator() {
+        return randomStringGenerator;
+    }
+
+    public void setRandomStringGenerator(IRandomStringGenerator randomStringGenerator) {
+        this.randomStringGenerator = randomStringGenerator;
+    }
+
+
     public void getRandom() {
-        System.out.println(randomStringGenerator.random());
+        System.out.println(getRandomStringGenerator().random());
     }
 }
