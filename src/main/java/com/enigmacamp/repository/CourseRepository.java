@@ -6,9 +6,13 @@ import com.enigmacamp.util.IRandomStringGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.support.TransactionCallback;
+import org.springframework.transaction.support.TransactionTemplate;
 
 import javax.sql.DataSource;
+import java.sql.Connection;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,6 +25,9 @@ public class CourseRepository implements ICourseRepository {
     private final String SQL_UPDATE_COURSE = "update mst_course set title = ?, description = ?, link  = ? where courseId = ?";
     private final String SQL_GET_ALL = "select * from mst_course";
     private final String SQL_INSERT_COURSE = "insert into mst_course values(?,?,?,?)";
+
+    @Autowired
+    TransactionTemplate transactionTemplate;
 
     public CourseRepository(DataSource dataSource) {
         jdbcTemplate = new JdbcTemplate(dataSource);
@@ -78,6 +85,37 @@ public class CourseRepository implements ICourseRepository {
         }
     }
 
+//    Programatic transaction using TransactionTemplate
+//    @Override
+//    public void bulk(List<Course> courses) throws Exception {
+//        transactionTemplate.execute(new TransactionCallback<Object>() {
+//
+//            @Override
+//            public Object doInTransaction(TransactionStatus status) {
+//                int jobCount = courses.size();
+//                try {
+//                    for (Course course : courses) {
+//                        course.setCourseId(randomStringGenerator.random());
+//                        if (jobCount == 2) {
+//                            throw new Exception("Failed to insert course");
+//                        }
+//                        int result = jdbcTemplate.update(SQL_INSERT_COURSE, course.getCourseId(), course.getTitle(), course.getDescription(), course.getLink());
+//                        if (result <= 0) {
+//                            throw new Exception("Failed to insert course");
+//                        }
+//                        jobCount--;
+//                    }
+//                } catch (Exception e) {
+//                    status.isRollbackOnly();
+//                    throw new RuntimeException(e);
+//                }
+//                return null;
+//            }
+//        });
+//
+//    }
+
+    //    Declarative transaction using annotation
     @Transactional(rollbackFor = Exception.class)
     @Override
     public void bulk(List<Course> courses) throws Exception {
@@ -85,9 +123,9 @@ public class CourseRepository implements ICourseRepository {
         try {
             for (Course course : courses) {
                 course.setCourseId(randomStringGenerator.random());
-                if (jobCount == 2) {
-                    throw new Exception("Failed to insert course");
-                }
+//                if (jobCount == 2) {
+//                    throw new Exception("Failed to insert course");
+//                }
                 int result = jdbcTemplate.update(SQL_INSERT_COURSE, course.getCourseId(), course.getTitle(), course.getDescription(), course.getLink());
                 if (result <= 0) {
                     throw new Exception("Failed to insert course");
@@ -97,7 +135,8 @@ public class CourseRepository implements ICourseRepository {
 
         } catch (DataAccessException e) {
             throw new RuntimeException(e);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
-
     }
 }
