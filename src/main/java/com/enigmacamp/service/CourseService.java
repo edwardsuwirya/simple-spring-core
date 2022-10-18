@@ -2,6 +2,7 @@ package com.enigmacamp.service;
 
 import com.enigmacamp.model.Course;
 import com.enigmacamp.repository.ICourseRepository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -51,6 +52,15 @@ public class CourseService implements ICourseService {
     public void delete(String id) {
         try {
             courseRepository.delete(id);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public void createBulk(List<Course> courses) {
+        try {
+            courseRepository.bulk(courses);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

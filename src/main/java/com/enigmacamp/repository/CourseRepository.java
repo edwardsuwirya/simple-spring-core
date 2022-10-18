@@ -6,6 +6,7 @@ import com.enigmacamp.util.IRandomStringGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.sql.DataSource;
 import java.util.List;
@@ -75,5 +76,28 @@ public class CourseRepository implements ICourseRepository {
         } catch (DataAccessException e) {
             throw new Exception("Failed to delete course");
         }
+    }
+
+    @Transactional(rollbackFor = Exception.class)
+    @Override
+    public void bulk(List<Course> courses) throws Exception {
+        int jobCount = courses.size();
+        try {
+            for (Course course : courses) {
+                course.setCourseId(randomStringGenerator.random());
+                if (jobCount == 2) {
+                    throw new Exception("Failed to insert course");
+                }
+                int result = jdbcTemplate.update(SQL_INSERT_COURSE, course.getCourseId(), course.getTitle(), course.getDescription(), course.getLink());
+                if (result <= 0) {
+                    throw new Exception("Failed to insert course");
+                }
+                jobCount--;
+            }
+
+        } catch (DataAccessException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 }

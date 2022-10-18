@@ -55,4 +55,9 @@ public class CourseArrayRepository implements ICourseRepository {
             }
         }
     }
+
+    @Override
+    public void bulk(List<Course> courses) throws Exception {
+
+    }
 }

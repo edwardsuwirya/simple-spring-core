@@ -12,7 +12,10 @@ import com.enigmacamp.util.UuidGenerator;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
 
@@ -21,6 +24,7 @@ import javax.sql.DataSource;
 // object getCourseRepository tidak akan menjadi singleton
 @Profile("!local")
 @Configuration
+@EnableTransactionManagement
 @PropertySource("file:${app.home}/application-${spring.profiles.active:default}.properties")
 public class BeanConfiguration {
     @Value("${spring.profiles.active}")
@@ -81,4 +85,10 @@ public class BeanConfiguration {
         driverManagerDataSource.setDriverClassName(dbDriver);
         return driverManagerDataSource;
     }
+
+    @Bean
+    public PlatformTransactionManager txManager() {
+        return new DataSourceTransactionManager(dataSource());
+    }
+
 }

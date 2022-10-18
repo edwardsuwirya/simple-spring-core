@@ -15,4 +15,6 @@ public interface ICourseRepository {
     void update(Course course, String id) throws Exception;
 
     void delete(String id) throws Exception;
+
+    void bulk(List<Course> courses) throws Exception;
 }

@@ -23,4 +23,6 @@ public interface ICourseService {
     void update(Course course, String id);
 
     void delete(String id);
+
+    void createBulk(List<Course> courses);
 }
