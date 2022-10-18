@@ -7,6 +7,8 @@ import com.enigmacamp.service.CourseService;
 import com.enigmacamp.service.ICourseService;
 import com.enigmacamp.util.IRandomStringGenerator;
 import com.enigmacamp.util.RandomInt;
+import com.enigmacamp.util.UuidGenerator;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
@@ -29,9 +31,19 @@ public class BeanConfiguration {
     }
 
     @Bean
-    public ErrorRepository errorRepository(){ return new ErrorRepository();}
+    public ErrorRepository errorRepository() {
+        return new ErrorRepository();
+    }
+
     @Bean
+    @Qualifier("randomInt")
     public IRandomStringGenerator getRandomInt() {
         return new RandomInt();
+    }
+
+    @Bean
+    @Qualifier("randomUUID")
+    public IRandomStringGenerator getRandomUUID() {
+        return new UuidGenerator();
     }
 }
