@@ -2,21 +2,23 @@ package com.enigmacamp.repository;
 
 import com.enigmacamp.model.Course;
 import com.enigmacamp.util.IRandomStringGenerator;
+import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+@Repository
 public class CourseArrayRepository implements ICourseRepository {
-    //    @Autowired
-//    @Qualifier("randomUUID")
-    IRandomStringGenerator randomStringGenerator;
+    private final IRandomStringGenerator randomStringGenerator;
 
-
-    public CourseArrayRepository(IRandomStringGenerator randomStringGenerator) {
-        this.randomStringGenerator = randomStringGenerator;
+    public CourseArrayRepository(BeanFactory beanFactory, @Value("${generator.type}")
+    String randomGenerator) {
+        this.randomStringGenerator = (IRandomStringGenerator) beanFactory.getBean(randomGenerator);
     }
 
     private List<Course> courses = new ArrayList<>();

@@ -2,10 +2,12 @@ package com.enigmacamp.service;
 
 import com.enigmacamp.model.Course;
 import com.enigmacamp.repository.ICourseRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class CourseService implements ICourseService {
 
     private ICourseRepository courseRepository;
