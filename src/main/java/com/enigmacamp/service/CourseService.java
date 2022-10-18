@@ -25,17 +25,17 @@ public class CourseService implements ICourseService {
     }
 
     @Override
-    public Optional<Course> get(Integer id) {
+    public Optional<Course> get(String id) {
         return Optional.empty();
     }
 
     @Override
-    public void update(Course course, Integer id) {
+    public void update(Course course, String id) {
 
     }
 
     @Override
-    public void delete(Integer id) {
+    public void delete(String id) {
 
     }
 }
