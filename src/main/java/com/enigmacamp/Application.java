@@ -35,7 +35,7 @@ public class Application {
 
         ICourseService courseService = ctx.getBean(ICourseService.class);
         Course springCourse = new Course();
-        springCourse.setCourseId(123);
+        springCourse.setCourseId("123");
         springCourse.setDescription("Spring IoC");
         springCourse.setLink("https://www.javatpoint.com/ioc-container");
         springCourse.setTitle("Spring Framework");
