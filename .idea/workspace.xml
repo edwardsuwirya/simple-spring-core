@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="614be628-8bcf-43f7-bb21-538e1df8b86a" name="Changes" comment="Config profile">
+    <list default="true" id="614be628-8bcf-43f7-bb21-538e1df8b86a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/README.MD" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application-prod.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-prod.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,13 +77,20 @@
       <recent name="com.enigmacamp.config" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Maven.Build-Snapshot">
     <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <envs>
+        <env name="DB_HOST" value="localhost" />
+        <env name="DB_NAME" value="postgres" />
+        <env name="DB_PASSWORD" value="postgres" />
+        <env name="DB_PORT" value="5432" />
+        <env name="DB_USER" value="postgres" />
         <env name="spring_profiles_active" value="prod" />
+        <env name="MIGRATION" value="yes" />
       </envs>
       <option name="MAIN_CLASS_NAME" value="com.enigmacamp.Application" />
       <module name="hello-spring" />
+      <option name="VM_PARAMETERS" value="-Dapp.home=&quot;$PROJECT_DIR$/src/main/resources/&quot;" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.enigmacamp.*" />
@@ -104,6 +111,119 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Build-Production" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings">
+          <MavenRunnerSettings>
+            <option name="delegateBuildToMaven" value="false" />
+            <option name="environmentProperties">
+              <map>
+                <entry key="RELEASE" value="RELEASE" />
+                <entry key="VERSION" value="1.0.0" />
+              </map>
+            </option>
+            <option name="jreName" value="#USE_PROJECT_JDK" />
+            <option name="mavenProperties">
+              <map />
+            </option>
+            <option name="passParentEnv" value="true" />
+            <option name="runMavenInBackground" value="true" />
+            <option name="skipTests" value="false" />
+            <option name="vmOptions" value="" />
+          </MavenRunnerSettings>
+        </option>
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="clean" />
+                <option value="package" />
+              </list>
+            </option>
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <extension name="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" IS_EXECUTABLE="false" />
+        </ENTRIES>
+      </extension>
+      <method v="2" />
+    </configuration>
+    <configuration name="Build-Snapshot" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings">
+          <MavenRunnerSettings>
+            <option name="delegateBuildToMaven" value="false" />
+            <option name="environmentProperties">
+              <map>
+                <entry key="RELEASE" value="SNAPSHOT" />
+                <entry key="VERSION" value="1.1.0" />
+              </map>
+            </option>
+            <option name="jreName" value="#USE_PROJECT_JDK" />
+            <option name="mavenProperties">
+              <map />
+            </option>
+            <option name="passParentEnv" value="true" />
+            <option name="runMavenInBackground" value="true" />
+            <option name="skipTests" value="false" />
+            <option name="vmOptions" value="" />
+          </MavenRunnerSettings>
+        </option>
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="clean" />
+                <option value="package" />
+              </list>
+            </option>
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <extension name="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" IS_EXECUTABLE="false" />
+        </ENTRIES>
+      </extension>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.Application" />
+      <item itemvalue="Maven.Build-Snapshot" />
+      <item itemvalue="Maven.Build-Production" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Application" />
@@ -169,7 +289,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666067162125</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Change property source to file">
+      <created>1666071437068</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1666071437068</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -186,7 +313,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="03-IoC-Constructor-Injection" />
+                        <option value="07-Spring-Config-Profile" />
                       </list>
                     </value>
                   </entry>
@@ -202,6 +329,11 @@
         <entry key="Branch">
           <value>
             <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="07-Spring-Config-Profile" />
+                </option>
+              </RecentGroup>
               <RecentGroup>
                 <option name="FILTER_VALUES">
                   <option value="03-IoC-Constructor-Injection" />
@@ -235,7 +367,8 @@
     <MESSAGE value="Using qualifier to differentiate same bean return class" />
     <MESSAGE value="Using setter injection" />
     <MESSAGE value="Config profile" />
-    <option name="LAST_COMMIT_MESSAGE" value="Config profile" />
+    <MESSAGE value="Change property source to file" />
+    <option name="LAST_COMMIT_MESSAGE" value="Change property source to file" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
