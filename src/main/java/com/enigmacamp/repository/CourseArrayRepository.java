@@ -20,15 +20,15 @@ public class CourseArrayRepository implements ICourseRepository {
         Random rand = new Random();
         int upperbound = 1000000;
         int int_random = rand.nextInt(upperbound);
-        course.setCourseId(int_random);
+        course.setCourseId(String.valueOf(int_random));
         courses.add(course);
         return course;
     }
 
     @Override
-    public Optional<Course> findById(Integer id) {
+    public Optional<Course> findById(String id) {
         for (Course course : courses) {
-            if (course.getCourseId() == id) {
+            if (course.getCourseId().equals(id)) {
                 return Optional.of(course);
             }
         }
@@ -36,9 +36,9 @@ public class CourseArrayRepository implements ICourseRepository {
     }
 
     @Override
-    public void update(Course course, Integer id) {
+    public void update(Course course, String id) {
         for (Course existingCourse : courses) {
-            if (existingCourse.getCourseId() == id) {
+            if (existingCourse.getCourseId().equals(id)) {
                 existingCourse.setLink(course.getLink());
                 existingCourse.setTitle(course.getTitle());
                 existingCourse.setDescription(course.getDescription());
@@ -48,9 +48,9 @@ public class CourseArrayRepository implements ICourseRepository {
     }
 
     @Override
-    public void delete(Integer id) {
+    public void delete(String id) {
         for (Course course : courses) {
-            if (course.getCourseId() == id) {
+            if (course.getCourseId().equals(id)) {
                 courses.remove(course);
                 break;
             }
