@@ -33,7 +33,7 @@ public class Application {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("ApplicationContext.xml");
         ICourseService courseService = (ICourseService) ctx.getBean("courseService");
         Course springCourse = new Course();
-        springCourse.setCourseId(123);
+        springCourse.setCourseId("123");
         springCourse.setDescription("Spring IoC");
         springCourse.setLink("https://www.javatpoint.com/ioc-container");
         springCourse.setTitle("Spring Framework");
