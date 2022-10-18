@@ -22,15 +22,15 @@ public class CourseService {
         return course;
     }
 
-    public Optional<Course> get(Integer id) {
+    public Optional<Course> get(String id) {
         return Optional.empty();
     }
 
-    public void update(Course course, Integer id) {
+    public void update(Course course, String id) {
 
     }
 
-    public void delete(Integer id) {
+    public void delete(String id) {
 
     }
 }
