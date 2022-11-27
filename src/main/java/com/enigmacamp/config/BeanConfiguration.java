@@ -1,5 +1,7 @@
 package com.enigmacamp.config;
 
+import com.github.javafaker.Faker;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
@@ -10,4 +12,8 @@ import org.springframework.context.annotation.PropertySource;
 @PropertySource("classpath:app.properties")
 public class BeanConfiguration {
 
+    @Bean
+    public Faker apacheRandomString() {
+        return new Faker();
+    }
 }

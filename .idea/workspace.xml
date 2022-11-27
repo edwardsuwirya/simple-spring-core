@@ -4,18 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="614be628-8bcf-43f7-bb21-538e1df8b86a" name="Changes" comment="PropertySource config programmatically">
-      <changelist_data name="edwardsuwirya" email="edward_suwirya@yahoo.com" date="1666054574000" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/SpringApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/util/annotation/HelloApplication.java" afterDir="false" />
+    <list default="true" id="614be628-8bcf-43f7-bb21-538e1df8b86a" name="Changes" comment="Component Scan">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/util/annotation/ExternalLibRandom.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/enigmacamp/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/enigmacamp/config/BeanConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/config/BeanConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/enigmacamp/repository/CourseArrayRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/repository/CourseArrayRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/enigmacamp/repository/ErrorRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/repository/ErrorRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/enigmacamp/service/CourseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/service/CourseService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/enigmacamp/util/RandomInt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/util/RandomInt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/enigmacamp/util/UuidGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/util/UuidGenerator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,8 +18,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -70,7 +63,7 @@
   <component name="RunManager">
     <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <envs>
-        <env name="GENERATOR" value="uuid" />
+        <env name="GENERATOR" value="ext" />
       </envs>
       <option name="MAIN_CLASS_NAME" value="com.enigmacamp.Application" />
       <module name="hello-spring" />
@@ -114,7 +107,7 @@
       <updated>1665967918246</updated>
       <workItem from="1665967919640" duration="3508000" />
       <workItem from="1666052203525" duration="850000" />
-      <workItem from="1669515672540" duration="6721000" />
+      <workItem from="1669515672540" duration="8674000" />
     </task>
     <task id="LOCAL-00001" summary="Spring Ioc, DI hands-on">
       <created>1665972799821</created>
@@ -137,7 +130,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666058731917</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Component Scan">
+      <created>1669522441263</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1669522441263</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -200,7 +200,8 @@
     <MESSAGE value="Spring Ioc, DI hands-on" />
     <MESSAGE value="IoC With Java Config" />
     <MESSAGE value="Field Injection with autowired annotation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Field Injection with autowired annotation" />
+    <MESSAGE value="Component Scan" />
+    <option name="LAST_COMMIT_MESSAGE" value="Component Scan" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
